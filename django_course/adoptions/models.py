@@ -7,7 +7,7 @@ class Pet(models.Model):
     submitter = models.CharField(max_length=100)
     species = models.CharField(max_length=100)
     breed = models.CharField(max_length=30, blank=True)
-    description = models.CharField()
+    description = models.TextField(max_length=250)
     sex = models.CharField(max_length=1, choices=SEX_CHOICES,blank=True)
     submission_date = models.DateTimeField()
     age = models.IntegerField(null=True)
@@ -17,3 +17,5 @@ class Pet(models.Model):
 class Vaccine(models.Model):
     name = models.CharField(max_length=50)
 
+    def __str__(self):
+        return self.name
